@@ -1,5 +1,5 @@
 /*	Author: rsohi001
- *  Partner(s) Name: (none)
+ *  Partner(s) Name: 
  *	Lab Section:
  *	Assignment: Lab #  Exercise #
  *	Exercise Description: [optional - include for your own benefit]
