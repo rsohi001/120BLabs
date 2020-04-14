@@ -24,6 +24,7 @@ int main(void) {
 	tempB = PINB & 0x01;
 	total = tempD << 1;
 	total = total + tempB;
+	tempB = 0x00;
 	if(total >= 70)
 	tempB = tempB + 0x02;
 	if((total > 5) && (total < 70))
