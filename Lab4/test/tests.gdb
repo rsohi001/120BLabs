@@ -26,23 +26,29 @@
 echo ======================================================\n
 echo Running all tests..."\n\n
 
-test "PINA: 0x01 => PORTC: 0x08, State: Init"
+test "PINA: 0x00 => PORTC: 0x07, State: Init"
 set state = Init
+setPINA 0x00
+continue 2
+expectPORTC 0x07
+checkResult
+
+test "PINA: 0x00, 0x01 => PORTC: 8, state: Init"
+set state = Init
+setPINA 0x00
+continue 2
 setPINA 0x01
+continue 2
+setPINA 0x01
+continue 2
+setPINA 0x00
+continue 2
+setPINA 0x01
+continue 2
+setPINA 0x02
 continue 2
 expectPORTC 0x08
 checkResult
-
-test "PINA: 0x01, 0x03 => PORTC: 0, state: Init"
-set state = Init
-setPINA 0x01
-continue 2
-setPINA 0x03
-continue 2
-expectPORTC 0x00
-checkResult
-
-
 set $passed=$tests-$failed
 eval "shell echo Passed %d/%d tests.\n",$passed,$tests
 echo ======================================================\n

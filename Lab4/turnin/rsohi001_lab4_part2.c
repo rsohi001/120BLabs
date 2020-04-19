@@ -17,7 +17,7 @@ enum States{Start, Init, Plus_P, Plus_R, Minus_P, Minus_R, Zero}state;
 
 void Tick(){
 	unsigned char tempA = PINA;
-	unsigned char tempC = PORTC;
+	unsigned char tempC = 0x07;
 	switch(state){
 		case Start:
 			state = Init;
