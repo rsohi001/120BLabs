@@ -1,4 +1,4 @@
-# Test file for "Lab 5"
+# Test file for "Lab9"
 
 
 # commands.gdb provides the following functions for ease:

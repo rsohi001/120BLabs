@@ -12,12 +12,34 @@
 #include "simAVRHeader.h"
 #endif
 
+unsigned char tempB;
+unsigned char tempD;
+unsigned short ADC_Var;
+unsigned short MAX;
+
+void ADC_init(){
+	ADCSRA |= (1 << ADEN) | (1 << ADSC) | (1 << ADATE);
+}
+
+
 int main(void) {
     /* Insert DDR and PORT initializations */
+	DDRB = 0xFF; PORTB = 0x00;
+	DDRD = 0xFF; PORTD = 0x00;
 
     /* Insert your solution below */
-    while (1) {
+    ADC_init();
 
+	MAX = 0x0F;
+
+    while (1) {	
+	ADC_Var = ADC;
+	tempB = (char)ADC_Var;
+
+	tempD = (char)(ADC_Var >> 8);
+	
+	PORTB = tempB;
+	PORTD = tempD;
     }
     return 1;
 }
